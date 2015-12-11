@@ -1,8 +1,8 @@
-List of temperatures for <%= @customer.name %>:
+List of Sensors for <%= @customer.name %>:
 
 <br>
-<% for temperature in @customer.temperatures %>
-<%= temperature.temperature %>
+<% for sensor_id in @customer.sensor_id %>
+<%= sensor_id.sensor_id %>
 <br>
 <% end %>
 <br>
