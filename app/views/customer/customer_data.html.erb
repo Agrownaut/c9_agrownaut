@@ -4,8 +4,25 @@ List of Sensors for <%= @customer.name %>:
 <% for sensor_id in @customer.sensor_id %>
 <%= sensor_id.sensor_id %>
 <br>
+=======
+List of temperatures for <%= @customer.name %>:
+<br>
+<%= link_to "Update Customer Name", {:id => params[:id],:action => 'update_customer'} %>
+<br>
+<% for temperature in @customer.temperatures %>
+<%= temperature.temperature %>
 <% end %>
 <br>
-<%= link_to "Update", {:id => params[:id],:action => 'update_customer'} %>
+<%= link_to "New Temp", {:id => params[:id],:action => 'create_temp'} %>
+<br>
 
 TODO: In this page we want to be able to add new temperature readings for this customer.
+
+Enter a new temperature for this customer: 
+<br>
+<%= form_tag("/add_temperature", method: "post") do %>
+  <%= label_tag(:temperature, "Temperature:") %>
+  <%= text_field_tag(:temperature) %>
+  <%= submit_tag("Add Temperature") %>
+  <%= hidden_field_tag :id, params[:id] %>
+<% end %>
