@@ -1,3 +1,3 @@
 class Customer < ActiveRecord::Base
-    has_many :temperatures
+    has_many :sensors
 end

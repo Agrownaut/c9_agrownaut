@@ -30,7 +30,6 @@ class CustomerController < ApplicationController
   
   def remove
     Customer.find(params[:id]).destroy
-<<<<<<< HEAD
   end
   
   def create_temp
@@ -39,10 +38,24 @@ class CustomerController < ApplicationController
       c.temperature = params[:temp]
       c.customer_id = params[:id]
       c.save
+    
       
       redirect_to :action => "customer_data", :id => params[:id]
     end
-
+  end  
+    
+  def create_sensor
+    if request.post?  
+      c = Sensor.new()
+      c.customer_id = params[:customer_id]
+      c.sensor_model = params[:sensor_model]
+      c.save
+    
+      redirect_to :action => "customer_data", :id => params[:customer_id]
+    end
+  end
+    
+    
  def delete
     @kill = Customer.find(params[:id])
     @kill.destroy
@@ -65,13 +78,6 @@ class CustomerController < ApplicationController
   params.permit(:name)
   end
 
- 
- 
- 
-
-
-end
-
   def add_temperature
     if request.post?  
       t = Temperature.new()
@@ -93,10 +99,8 @@ end
   
   # TODO we want to be able to delete 
   # individual temperature readings
-<<<<<<< HEAD
-  
+ 
 
 
 end
-=======
->>>>>>> origin/master
+

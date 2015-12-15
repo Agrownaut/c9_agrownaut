@@ -16,11 +16,9 @@ Rails.application.routes.draw do
   post 'create_customer' => 'customer#create_customer'
   get 'list_customer' => 'customer#list_customer'
   get 'customer_data' => 'customer#customer_data'
-<<<<<<< HEAD
   post 'customer_data' => 'customer#customer_data'
   get 'add_temperature' => 'customer#add_temperature'
   post 'add_temperature' => 'customer#add_temperature'
-=======
   get 'remove' => 'customer#remove'
   post 'remove' => 'customer#remove'
   
@@ -32,12 +30,17 @@ Rails.application.routes.draw do
   
   get 'create_temp' => 'customer#create_temp'
   post 'create_temp' => 'customer#create_temp'
+
+  get 'create_sensor' => 'customer#create_sensor'
+  post 'create_sensor' => 'customer#create_sensor'
+  
+  get 'list_sensor' => 'sensors#list_sensor'
+
   
   get 'delete' => 'customer#delete'
 
 
   
->>>>>>> origin/master
   
   
   # Example of regular route:
